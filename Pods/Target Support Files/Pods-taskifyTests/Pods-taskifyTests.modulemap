@@ -1,0 +1,6 @@
+framework module Pods_taskifyTests {
+  umbrella header "Pods-taskifyTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

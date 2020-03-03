@@ -1,0 +1,6 @@
+framework module Pods_taskify {
+  umbrella header "Pods-taskify-umbrella.h"
+
+  export *
+  module * { export * }
+}
