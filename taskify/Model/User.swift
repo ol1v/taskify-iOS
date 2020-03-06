@@ -10,13 +10,16 @@ import Foundation
 
 class User: NSObject {
     
-    var username: String!
-    var password: String!
-    var email: String!
+    var userID: String?
+    var username: String?
+    var password: String?
+    var email: String?
     var points: Int = 0
     var usersGroups: [Group] = []
     
     init(username: String, password: String, email: String) {
-        
+        self.username = username
+        self.password = password
+        self.email = email
     }
 }

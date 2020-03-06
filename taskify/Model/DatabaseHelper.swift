@@ -11,19 +11,32 @@ import Firebase
 
 class DatabaseHelper: NSObject {
     
-    
-    
-  /*  func listenForAuthState(ViewController: UIViewController) {
+    override init() {
+        super.init()
         
-        var handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            // ViewController.viewWillAppear(true)
-            
-            
-        }
     }
     
-    func detachListenerFromController() {
-        Auth.auth().removeStateDidChangeListener(handle!)
-    }*/
+    func createUser(user: User) {
+        
+        Auth.auth().createUser(withEmail: (user.email!), password: (user.password!)) { (result, error) in
+                   if let _error = error {
+                       // ERROR
+                       print(_error.localizedDescription )
+                   }else{
+                       //user registered successfully
+                    print("no error")
+                    print(result ?? "no result")
+                    // add user to database with username
+                    user.userID = result?.user.uid
+                    
+                    self.addUserWithUsernameToDatabase(user: user)
+                   }
+                }
+    }
+    
+    func addUserWithUsernameToDatabase(user: User) {
+        // Add user to firebase database.
+    }
+  
     
 }

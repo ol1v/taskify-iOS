@@ -22,8 +22,9 @@ class loginVC: UIViewController {
         // Do any additional setup after loading the view.
         setTransparentNavigationbar()
         styleAssetsInView()
-        
-        //animateAssetsWhenViewLoaded()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        animateAssetsWhenViewLoaded()
     }
     
     func setTransparentNavigationbar() {
@@ -31,6 +32,7 @@ class loginVC: UIViewController {
         self.navigationController!.navigationBar.shadowImage = UIImage()
         self.navigationController!.navigationBar.isTranslucent = true
     }
+    
     func styleAssetsInView() {
         loginButton.roundCornerRadiusButton()
     }
@@ -40,9 +42,10 @@ class loginVC: UIViewController {
     }
     // Gör extension
     func animateAssetsWhenViewLoaded(){
-        UIView.animate(withDuration: 0.5, delay: 3, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseIn, animations: {
-            //self.loginLabel.transform = CGAffineTransform(scaleX: 0, y: )
+        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseIn, animations: {
+            self.loginLabel.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
         }, completion: nil)
+        //Do other animations of assets in loginview
     }
     
 }

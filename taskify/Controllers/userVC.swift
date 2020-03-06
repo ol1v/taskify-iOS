@@ -12,7 +12,7 @@ class userVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var newGroupButton: UIButton!
-    @IBOutlet weak var bottomView: viewLayout!
+    @IBOutlet weak var bottomView: UIView!
     var user: User!
     
     override func viewDidLoad() {
@@ -26,11 +26,11 @@ class userVC: UIViewController {
         
         let nib = UINib(nibName: "groupCell",bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "groupCell")
-        
-        // Do any additional setup after loading the view.
     }
+    
     func setStylesInView() {
         newGroupButton.roundButton()
+        bottomView.roundCorners()
     }
 
     func loadUser() {
@@ -39,11 +39,7 @@ class userVC: UIViewController {
     }
     func createNewGroup(){
         //Group.createNewGroup(user.username)
-        
-    }
-    
-    
-    
+        }
     
     // skapa global function för detta
     func setTransparentNavigationbar() {
@@ -53,6 +49,8 @@ class userVC: UIViewController {
       }
 }
 
+
+// #MARK: - extensions
 extension userVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -73,6 +71,4 @@ extension userVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "goToGroupSegue", sender: self)
     }
-    
-    
 }

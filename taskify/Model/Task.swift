@@ -10,13 +10,14 @@ import Foundation
 
 class Task: NSObject {
     
-    var basicTask: String!
+    var basicTask: String?
     var groceryListTask: [Dictionary<String, Bool>] = []
     let newGrocerytaskStatus: Bool = false
     
     init(basictask: String) {
         self.basicTask = basictask
     }
+    
     init(groceryList: [String]) {
         for task in groceryList {
             let grocerytask: [String: Bool] = [task:newGrocerytaskStatus]

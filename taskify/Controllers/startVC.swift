@@ -18,19 +18,21 @@ class startVC: UIViewController {
         // Set style of assets in view
         setTransparentNavigationbar()
         styleViewAssets()
-        
-        // Do any additional setup after loading the view.
     }
+    
     @IBAction func loginButtonPressed(_ sender: Any) {
         self.performSegue(withIdentifier: "startToLoginSegue", sender: self)
     }
+    
     @IBAction func signupButtonPressed(_ sender: Any) {
         self.performSegue(withIdentifier: "startToSignupSegue", sender: self)
     }
+    
     func styleViewAssets() {
         signupButton.roundCornerRadiusButton()
         loginButton.roundCornerRadiusButton()
     }
+    
     // Make extension
     func setTransparentNavigationbar() {
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
