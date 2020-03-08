@@ -11,6 +11,8 @@ import Firebase
 
 class DatabaseHelper: NSObject {
     
+    let ref = Database.database().reference()
+    
     override init() {
         super.init()
         
@@ -35,7 +37,7 @@ class DatabaseHelper: NSObject {
     }
     
     func addUserWithUsernameToDatabase(user: User) {
-        // Add user to firebase database.
+        self.ref.child("users").child(user.userID!).setValue(["username":user.username])
     }
   
     
