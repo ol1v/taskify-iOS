@@ -48,7 +48,7 @@ class userVC: UIViewController {
     
     @IBAction func newGroupButtonPressed(_ sender: Any) {
         // Alertview with namefield, and a way to invite members directly.
-        let alertVC = alertHandler.alert()
+        let alertVC = alertHandler.alert(title: "Create New Group", textfieldplaceholder: "Groupname...", buttontitle: "Create")
         
         present(alertVC, animated: true)
         

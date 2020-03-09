@@ -15,10 +15,21 @@ class CustomAlertView: UIViewController {
     @IBOutlet weak var alertCancelButton: UIButton!
     @IBOutlet weak var alertView: UIView!
     
+    var alertTitle = String()
+    var alertTextFieldPlaceholder = String()
+    var alertButton = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         styleAssetsInView()
+        setTextsInView()
     }
+    func setTextsInView() {
+        alertLabel.text = alertTitle
+        alertTextField.placeholder = alertTextFieldPlaceholder
+        alertOkButton.setTitle(alertButton, for: .normal)
+    }
+    
     func styleAssetsInView() {
         alertView.roundCornerRadius()
         alertOkButton.roundCornerRadiusButton()
@@ -26,8 +37,10 @@ class CustomAlertView: UIViewController {
     }
     
     @IBAction func alertOkButtonPressed(_ sender: Any) {
+        
     }
     @IBAction func alertCancelButtonPressed(_ sender: Any) {
+        dismiss(animated: true)
     }
     
 }
