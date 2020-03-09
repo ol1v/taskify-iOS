@@ -19,6 +19,6 @@ class Group: NSObject {
         self.groupMembers.append(groupCreator)
     }
     func addTask() {
-        
+    
     }
 }

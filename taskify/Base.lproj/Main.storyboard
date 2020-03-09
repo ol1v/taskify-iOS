@@ -149,6 +149,9 @@
                                         <state key="normal" title="+">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="newGroupButtonPressed:" destination="yEe-gl-qJ1" eventType="touchUpInside" id="OE8-02-YXD"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -191,6 +194,7 @@
                         <outlet property="bottomView" destination="e98-n8-MBz" id="pmf-yb-tF1"/>
                         <outlet property="newGroupButton" destination="j9B-fC-Ddf" id="3on-BT-c6U"/>
                         <outlet property="tableView" destination="0N3-kK-Xsn" id="8id-gh-AGO"/>
+                        <outlet property="userSettingsItem" destination="uy6-P1-H5v" id="KJ0-WZ-SPt"/>
                         <segue destination="LVj-uE-ifI" kind="show" identifier="goToGroupSegue" id="Vdf-JU-u0t"/>
                     </connections>
                 </viewController>
@@ -408,6 +412,7 @@
                         <outlet property="emailTextField" destination="8mq-95-fOr" id="qQN-tn-zne"/>
                         <outlet property="passwordTextField" destination="Dne-Ec-d03" id="yMK-lQ-hJ8"/>
                         <outlet property="usernameTextField" destination="VtG-VG-YXW" id="FSv-xL-V21"/>
+                        <segue destination="yEe-gl-qJ1" kind="show" identifier="successfulSignupSegue" id="8yw-8b-zYs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ixD-s4-GIF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -456,4 +461,7 @@
         <image name="startscreenbackground" width="187.5" height="333.5"/>
         <image name="usermainscreen2" width="187.5" height="333.5"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="8yw-8b-zYs"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -20,6 +20,7 @@ class signupVC: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var confirmEmailTextField: UITextField!
     var DBHelper = DatabaseHelper()
+    var signedUpUser: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,8 @@ class signupVC: UIViewController {
             print("user created: \(user.username!)")
             DBHelper.createUser(user: user)
             // Go to logged-in-screen
+            self.signedUpUser = user
+            self.performSegue(withIdentifier: "successfulSignupSegue", sender: self)
             // Add auto-login
         }
     }
@@ -80,15 +83,17 @@ class signupVC: UIViewController {
         //Buttons
         createAccountButton.roundCornerRadiusButton()
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if(segue.identifier == "successfulSignupSegue") {
+            let vc = segue.destination as? userVC
+            vc?.user = signedUpUser
+        }
     }
-    */
+    
 
 }
 

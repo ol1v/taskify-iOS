@@ -32,10 +32,13 @@ class DatabaseHelper: NSObject {
                     user.userID = result?.user.uid
                     
                     self.addUserWithUsernameToDatabase(user: user)
+                    // Go to homescreen(userVC) with segue. Send user.
+                    // Fix auto-login after successful signUp
+                    
                    }
                 }
     }
-    
+    // Adds user to realtime db, with authID as userID and selected username.
     func addUserWithUsernameToDatabase(user: User) {
         self.ref.child("users").child(user.userID!).setValue(["username":user.username])
     }

@@ -10,6 +10,7 @@ import UIKit
 
 class userVC: UIViewController {
 
+    @IBOutlet weak var userSettingsItem: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var newGroupButton: UIButton!
     @IBOutlet weak var bottomView: UIView!
@@ -26,6 +27,9 @@ class userVC: UIViewController {
         
         let nib = UINib(nibName: "groupCell",bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "groupCell")
+        
+        // load user
+        userSettingsItem.title = user.username
     }
     
     func setStylesInView() {
@@ -38,8 +42,12 @@ class userVC: UIViewController {
         // get the logged in users data from database
     }
     func createNewGroup(){
-        //Group.createNewGroup(user.username)
+        // Group(groupname, creator)
         }
+    
+    @IBAction func newGroupButtonPressed(_ sender: Any) {
+        // Alertview with namefield, and a way to invite members directly.
+    }
     
     // skapa global function för detta
     func setTransparentNavigationbar() {
@@ -52,6 +60,7 @@ class userVC: UIViewController {
 
 // #MARK: - extensions
 extension userVC: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }

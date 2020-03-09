@@ -31,6 +31,7 @@
 		8D9A9BD8240D1C0100903C8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D9A9BD7240D1C0100903C8D /* GoogleService-Info.plist */; };
 		8D9A9BDA240D3A4C00903C8D /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9A9BD9240D3A4C00903C8D /* TextFieldExtensions.swift */; };
 		8D9A9BDC2412664500903C8D /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9A9BDB2412664500903C8D /* ViewExtensions.swift */; };
+		8D9A9BDE2415237900903C8D /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9A9BDD2415237900903C8D /* CustomAlertView.swift */; };
 		BA94143B83061E4070367F7A /* Pods_taskify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C05A4668402143F5AB3ECFFC /* Pods_taskify.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		8D9A9BD7240D1C0100903C8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8D9A9BD9240D3A4C00903C8D /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
 		8D9A9BDB2412664500903C8D /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		8D9A9BDD2415237900903C8D /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		C05A4668402143F5AB3ECFFC /* Pods_taskify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taskify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3FAB3F618B3B878D73B8CB /* Pods-taskifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskifyTests.debug.xcconfig"; path = "Target Support Files/Pods-taskifyTests/Pods-taskifyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E83D356EFB83AC2628F2AEDF /* Pods-taskify-taskifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskify-taskifyUITests.release.xcconfig"; path = "Target Support Files/Pods-taskify-taskifyUITests/Pods-taskify-taskifyUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				8D637E16240552D100F46B80 /* startVC.swift */,
 				8D637E14240551AB00F46B80 /* userVC.swift */,
 				8D075A9824093DAA00CE2411 /* groupVC.swift */,
+				8D9A9BDD2415237900903C8D /* CustomAlertView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				8D637DE4240549BE00F46B80 /* SceneDelegate.swift in Sources */,
 				8D637E15240551AC00F46B80 /* userVC.swift in Sources */,
 				8D075A932408FDA600CE2411 /* User.swift in Sources */,
+				8D9A9BDE2415237900903C8D /* CustomAlertView.swift in Sources */,
 				8D9A9BDA240D3A4C00903C8D /* TextFieldExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
