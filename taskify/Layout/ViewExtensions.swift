@@ -30,4 +30,7 @@ extension UIView {
     func roundCorners() {
         self.layer.cornerRadius = 50
     }
+    func roundCornerRadius() {
+        self.layer.cornerRadius = 5
+    }
 }

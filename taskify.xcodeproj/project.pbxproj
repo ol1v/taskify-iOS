@@ -32,6 +32,8 @@
 		8D9A9BDA240D3A4C00903C8D /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9A9BD9240D3A4C00903C8D /* TextFieldExtensions.swift */; };
 		8D9A9BDC2412664500903C8D /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9A9BDB2412664500903C8D /* ViewExtensions.swift */; };
 		8D9A9BDE2415237900903C8D /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9A9BDD2415237900903C8D /* CustomAlertView.swift */; };
+		8D9A9BE424163A4D00903C8D /* CustomAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D9A9BE324163A4D00903C8D /* CustomAlert.storyboard */; };
+		8D9A9BE624164AF800903C8D /* AlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9A9BE524164AF800903C8D /* AlertHandler.swift */; };
 		BA94143B83061E4070367F7A /* Pods_taskify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C05A4668402143F5AB3ECFFC /* Pods_taskify.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +88,8 @@
 		8D9A9BD9240D3A4C00903C8D /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
 		8D9A9BDB2412664500903C8D /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		8D9A9BDD2415237900903C8D /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		8D9A9BE324163A4D00903C8D /* CustomAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomAlert.storyboard; sourceTree = "<group>"; };
+		8D9A9BE524164AF800903C8D /* AlertHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHandler.swift; sourceTree = "<group>"; };
 		C05A4668402143F5AB3ECFFC /* Pods_taskify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taskify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3FAB3F618B3B878D73B8CB /* Pods-taskifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskifyTests.debug.xcconfig"; path = "Target Support Files/Pods-taskifyTests/Pods-taskifyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E83D356EFB83AC2628F2AEDF /* Pods-taskify-taskifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskify-taskifyUITests.release.xcconfig"; path = "Target Support Files/Pods-taskify-taskifyUITests/Pods-taskify-taskifyUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 				8D075A8D2407FE7300CE2411 /* Layout */,
 				8D637DEF240549D200F46B80 /* Info.plist */,
 				8D9A9BD7240D1C0100903C8D /* GoogleService-Info.plist */,
+				8D9A9BE324163A4D00903C8D /* CustomAlert.storyboard */,
 				8D637DE7240549BE00F46B80 /* Main.storyboard */,
 				8D637DEA240549D200F46B80 /* Assets.xcassets */,
 				8D637DEC240549D200F46B80 /* LaunchScreen.storyboard */,
@@ -198,6 +203,7 @@
 				8D637E14240551AB00F46B80 /* userVC.swift */,
 				8D075A9824093DAA00CE2411 /* groupVC.swift */,
 				8D9A9BDD2415237900903C8D /* CustomAlertView.swift */,
+				8D9A9BE524164AF800903C8D /* AlertHandler.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -358,6 +364,7 @@
 				8D637DEB240549D200F46B80 /* Assets.xcassets in Resources */,
 				8D9A9BD8240D1C0100903C8D /* GoogleService-Info.plist in Resources */,
 				8D637DE9240549BE00F46B80 /* Main.storyboard in Resources */,
+				8D9A9BE424163A4D00903C8D /* CustomAlert.storyboard in Resources */,
 				8D075A9D240A96CB00CE2411 /* groupCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,6 +500,7 @@
 				8D637DE6240549BE00F46B80 /* loginVC.swift in Sources */,
 				8D075A912408FD5F00CE2411 /* DatabaseHelper.swift in Sources */,
 				8D637DE2240549BE00F46B80 /* AppDelegate.swift in Sources */,
+				8D9A9BE624164AF800903C8D /* AlertHandler.swift in Sources */,
 				8D075A972409003B00CE2411 /* Task.swift in Sources */,
 				8D637E192405537700F46B80 /* signupVC.swift in Sources */,
 				8D637E17240552D100F46B80 /* startVC.swift in Sources */,

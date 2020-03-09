@@ -9,5 +9,25 @@
 import UIKit
 
 class CustomAlertView: UIViewController {
-
+    @IBOutlet weak var alertLabel: UILabel!
+    @IBOutlet weak var alertTextField: UITextField!
+    @IBOutlet weak var alertOkButton: UIButton!
+    @IBOutlet weak var alertCancelButton: UIButton!
+    @IBOutlet weak var alertView: UIView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        styleAssetsInView()
+    }
+    func styleAssetsInView() {
+        alertView.roundCornerRadius()
+        alertOkButton.roundCornerRadiusButton()
+        alertCancelButton.roundCornerRadiusButton()
+    }
+    
+    @IBAction func alertOkButtonPressed(_ sender: Any) {
+    }
+    @IBAction func alertCancelButtonPressed(_ sender: Any) {
+    }
+    
 }

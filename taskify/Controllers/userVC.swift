@@ -15,6 +15,7 @@ class userVC: UIViewController {
     @IBOutlet weak var newGroupButton: UIButton!
     @IBOutlet weak var bottomView: UIView!
     var user: User!
+    let alertHandler = AlertHandler()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,8 @@ class userVC: UIViewController {
         let nib = UINib(nibName: "groupCell",bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "groupCell")
         
-        // load user
-        userSettingsItem.title = user.username
+        // load user - signup funkar. Fixa via LoginVC
+        //userSettingsItem.title = user.username
     }
     
     func setStylesInView() {
@@ -47,6 +48,10 @@ class userVC: UIViewController {
     
     @IBAction func newGroupButtonPressed(_ sender: Any) {
         // Alertview with namefield, and a way to invite members directly.
+        let alertVC = alertHandler.alert()
+        
+        present(alertVC, animated: true)
+        
     }
     
     // skapa global function för detta
