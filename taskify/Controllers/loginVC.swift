@@ -52,9 +52,9 @@ class loginVC: UIViewController {
         })
         // Animate UsernameTextfield
         self.usernameTextField.loginAnimation(duration: 0.3, delay: 0.3)
-        self.passwordTextField.loginAnimation(duration: 0.3, delay: 0.6)
+        self.passwordTextField.loginAnimation(duration: 0.3, delay: 0.4)
         self.clickhereButton.loginAnimation(duration: 0.3, delay: 0.9)
-        self.loginButton.loginAnimation(duration: 0.3, delay: 1.2)
+        self.loginButton.loginAnimation(duration: 0.3, delay: 1.3)
         
         
         //Do other animations of assets in loginview
