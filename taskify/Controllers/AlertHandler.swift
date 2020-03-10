@@ -14,7 +14,7 @@ class AlertHandler {
         
     }
     
-    func alert(title: String, textfieldplaceholder: String, buttontitle: String) -> CustomAlertView {
+    func alert(title: String, textfieldplaceholder: String, buttontitle: String, onOkPressed: @escaping (String) -> Void) -> CustomAlertView {
         
         let storyboard = UIStoryboard(name: "CustomAlert", bundle: .main)
         
@@ -23,6 +23,7 @@ class AlertHandler {
         alertVC.alertTitle = title
         alertVC.alertTextFieldPlaceholder = textfieldplaceholder
         alertVC.alertButton = buttontitle
+        alertVC.onOkPressed = onOkPressed
         
         return alertVC
     }

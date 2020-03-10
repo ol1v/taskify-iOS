@@ -18,6 +18,8 @@ class CustomAlertView: UIViewController {
     var alertTitle = String()
     var alertTextFieldPlaceholder = String()
     var alertButton = String()
+    var alertTextFieldText = String()
+    var onOkPressed: (String) -> Void = {name in print("no onclick added")}
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,11 @@ class CustomAlertView: UIViewController {
     }
     
     @IBAction func alertOkButtonPressed(_ sender: Any) {
+        // Group should be added to users groupsarray
+        
+        alertTextFieldText = alertTextField.text!
+        onOkPressed(alertTextFieldText)
+        dismiss(animated: true)
         
     }
     @IBAction func alertCancelButtonPressed(_ sender: Any) {

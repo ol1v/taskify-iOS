@@ -22,9 +22,11 @@ class User: NSObject {
         self.password = password
         self.email = email
     }
-    func createGroup(groupname: String, user: User) -> Group {
-        let group: Group = Group(groupName: groupname, groupCreator: user)
+    func createGroup(groupname: String, user: User) {
         
-        return group
+        let group: Group = Group(groupName: groupname, groupCreator: user)
+        self.usersGroups.append(group)
+        print("group created: \(group.groupName)")
+        print("by user: \(user.username!)")
     }
 }

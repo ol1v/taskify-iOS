@@ -10,13 +10,14 @@ import Foundation
 
 class Group: NSObject {
     var groupId: String!
-    var groupName: String!
+    var groupName = String()
     var groupMembers: [User] = []
     var groupTasks: [Task] = []
     
     init(groupName: String, groupCreator: User){
         self.groupName = groupName
         self.groupMembers.append(groupCreator)
+        
     }
     func addTask() {
     

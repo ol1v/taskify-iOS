@@ -15,6 +15,7 @@ class userVC: UIViewController {
     @IBOutlet weak var newGroupButton: UIButton!
     @IBOutlet weak var bottomView: UIView!
     var user: User!
+    var newGroup = String()
     let alertHandler = AlertHandler()
     
     override func viewDidLoad() {
@@ -30,25 +31,26 @@ class userVC: UIViewController {
         self.tableView.register(nib, forCellReuseIdentifier: "groupCell")
         
         // load user - signup funkar. Fixa via LoginVC
-        //userSettingsItem.title = user.username
+        userSettingsItem.title = user.username
+
     }
     
     func setStylesInView() {
         newGroupButton.roundButton()
         bottomView.roundCorners()
     }
-
+    
     func loadUser() {
         // get the logged in user
         // get the logged in users data from database
     }
-    func createNewGroup(){
-        // Group(groupname, creator)
-        }
     
     @IBAction func newGroupButtonPressed(_ sender: Any) {
         // Alertview with namefield, and a way to invite members directly.
-        let alertVC = alertHandler.alert(title: "Create New Group", textfieldplaceholder: "Groupname...", buttontitle: "Create")
+        let alertVC = alertHandler.alert(title: "Create New Group", textfieldplaceholder: "Groupname...", buttontitle: "Create", onOkPressed: {
+            name in
+            self.user.createGroup(groupname: name, user: self.user)
+        })
         
         present(alertVC, animated: true)
         
