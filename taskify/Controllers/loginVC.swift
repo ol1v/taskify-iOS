@@ -38,13 +38,25 @@ class loginVC: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
+        // Check username and password
         self.performSegue(withIdentifier: "loginToUserMainSegue", sender: self)
     }
     // Gör extension
     func animateAssetsWhenViewLoaded(){
-        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseIn, animations: {
-            self.loginLabel.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-        }, completion: nil)
+        // Animate LoginLabel
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseIn, animations: {
+            self.loginLabel.transform = CGAffineTransform(scaleX: 1.3, y: 1.2)
+        }, completion: {
+            b in
+            self.loginLabel.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        })
+        // Animate UsernameTextfield
+        self.usernameTextField.loginAnimation(duration: 0.3, delay: 0.3)
+        self.passwordTextField.loginAnimation(duration: 0.3, delay: 0.6)
+        self.clickhereButton.loginAnimation(duration: 0.3, delay: 0.9)
+        self.loginButton.loginAnimation(duration: 0.3, delay: 1.2)
+        
+        
         //Do other animations of assets in loginview
     }
     

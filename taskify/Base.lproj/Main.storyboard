@@ -101,7 +101,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="X3e-Ql-AJt"/>
                     <connections>
-                        <outlet property="clickhereButton" destination="RUP-YC-GAF" id="3pZ-IS-61o"/>
+                        <outlet property="clickhereButton" destination="RUP-YC-GAF" id="ce1-hz-cFf"/>
                         <outlet property="forgotpasswordLabel" destination="ZPN-Xa-6qB" id="srO-yU-cDT"/>
                         <outlet property="loginButton" destination="9KW-n9-LVA" id="Sbh-4W-nes"/>
                         <outlet property="loginLabel" destination="zyt-0i-B0e" id="Xat-mH-43L"/>
@@ -462,6 +462,6 @@
         <image name="usermainscreen2" width="187.5" height="333.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8yw-8b-zYs"/>
+        <segue reference="xQe-x4-7gb"/>
     </inferredMetricsTieBreakers>
 </document>

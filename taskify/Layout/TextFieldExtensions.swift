@@ -23,5 +23,14 @@ extension UITextField {
         self.layer.shadowRadius = 0.0
         
     }
+    func loginAnimation(duration: Double, delay: Double) {
+        UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: 1.0,
+                       initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+                        self.transform = CGAffineTransform(scaleX: 1.3, y: 1.0)
+        }, completion: {
+            b in
+            self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        })
+    }
 }
 
