@@ -32,7 +32,6 @@ class startVC: UIViewController {
         signupButton.roundCornerRadiusButton()
         loginButton.roundCornerRadiusButton()
     }
-    
     // Make extension
     func setTransparentNavigationbar() {
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)

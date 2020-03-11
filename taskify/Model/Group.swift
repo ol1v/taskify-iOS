@@ -17,6 +17,8 @@ class Group: NSObject {
     init(groupName: String, groupCreator: User){
         self.groupName = groupName
         self.groupMembers.append(groupCreator)
+    }
+    override init() {
         
     }
     func addTask() {

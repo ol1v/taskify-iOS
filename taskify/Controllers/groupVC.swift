@@ -9,12 +9,16 @@
 import UIKit
 
 class groupVC: UIViewController {
-
+    
+    @IBOutlet weak var headerTitleNavItem: UINavigationItem!
     @IBOutlet weak var addUserToGroupButton: UIButton!
+    var group = Group()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //headerTitleNavItem.title = group.groupName
+        print("Entered group: \(group.groupName)")
         // Do any additional setup after loading the view.
     }
     

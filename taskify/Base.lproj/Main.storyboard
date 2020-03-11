@@ -261,6 +261,7 @@
                     <navigationItem key="navigationItem" title="Groupname" id="5Ht-gr-k4r"/>
                     <connections>
                         <outlet property="addUserToGroupButton" destination="89v-LK-ucl" id="fho-SV-ghC"/>
+                        <outlet property="headerTitleNavItem" destination="5Ht-gr-k4r" id="6Qh-Vz-eYH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k8K-LK-QSS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -15,18 +15,19 @@ class userVC: UIViewController {
     @IBOutlet weak var newGroupButton: UIButton!
     @IBOutlet weak var bottomView: UIView!
     var user: User!
+    var selectedGroup: Group!
     var newGroup = String()
     let alertHandler = AlertHandler()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Set layout in viewcontroller
         setTransparentNavigationbar()
         setStylesInView()
-        
+        // tableView
         tableView.dataSource = self
         tableView.delegate = self
-        
+        // tableview customcell
         let nib = UINib(nibName: "groupCell",bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "groupCell")
         
@@ -46,19 +47,19 @@ class userVC: UIViewController {
     }
     
     @IBAction func newGroupButtonPressed(_ sender: Any) {
-        // Alertview with namefield, and a way to invite members directly.
+        // Custom Alertview with textfield.
         let alertVC = alertHandler.alert(title: "Create New Group", textfieldplaceholder: "Groupname...", buttontitle: "Create", onOkPressed: {
             name in
+            // Lägga till grupp i databas!
             self.user.createGroup(groupname: name, user: self.user)
-            //reload data in tableview
+            //reload data in tableview after new group is created.
             self.tableView.reloadData()
         })
         
         present(alertVC, animated: true)
         
     }
-    
-    // skapa global function för detta
+    // Gör extension av detta
     func setTransparentNavigationbar() {
           self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
           self.navigationController!.navigationBar.shadowImage = UIImage()
@@ -83,14 +84,24 @@ extension userVC: UITableViewDataSource, UITableViewDelegate {
         } else{
             cell.textLabel!.text = user.usersGroups[indexPath.row].groupName
             }
-        
         return cell
-        
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedGroup = self.user.usersGroups[indexPath.row]
         self.performSegue(withIdentifier: "goToGroupSegue", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "goToGroupSegue") {
+            let vc = segue.destination as? groupVC
+            vc?.group = self.selectedGroup
+        }
+    }
+    
+    
 }
