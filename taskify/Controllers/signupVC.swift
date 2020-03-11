@@ -46,6 +46,7 @@ class signupVC: UIViewController {
             // Go to logged-in-screen
             self.signedUpUser = user
             self.performSegue(withIdentifier: "successfulSignupSegue", sender: self)
+            
             // Add auto-login
         }
     }
@@ -91,9 +92,12 @@ class signupVC: UIViewController {
         if(segue.identifier == "successfulSignupSegue") {
             let vc = segue.destination as? userVC
             vc?.user = signedUpUser
+                    
+            /*view.window?.rootViewController = vc
+            view.window?.makeKeyAndVisible()*/
         }
     }
-    
+
 
 }
 

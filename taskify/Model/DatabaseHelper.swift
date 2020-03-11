@@ -42,6 +42,11 @@ class DatabaseHelper: NSObject {
     func addUserWithUsernameToDatabase(user: User) {
         self.ref.child("users").child(user.userID!).setValue(["username":user.username])
     }
+    // Adds group to database with it's creator (user)
+    func addGroupToDatabase(group: Group) {
+        
+        self.ref.child("groups").childByAutoId().child(group.groupName).setValue(["membersByID":group.groupMembers[0].userID])
+    }
   
     
 }

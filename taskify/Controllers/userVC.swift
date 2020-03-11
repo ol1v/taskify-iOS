@@ -18,11 +18,14 @@ class userVC: UIViewController {
     var selectedGroup: Group!
     var newGroup = String()
     let alertHandler = AlertHandler()
+    let dbHelper = DatabaseHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // set userVC as rootviewcontroller (when logged in)
+        
         // Set layout in viewcontroller
-        setTransparentNavigationbar()
+        //setTransparentNavigationbar()
         setStylesInView()
         // tableView
         tableView.dataSource = self
@@ -51,7 +54,9 @@ class userVC: UIViewController {
         let alertVC = alertHandler.alert(title: "Create New Group", textfieldplaceholder: "Groupname...", buttontitle: "Create", onOkPressed: {
             name in
             // Lägga till grupp i databas!
-            self.user.createGroup(groupname: name, user: self.user)
+            let newGroup = self.user.createGroup(groupname: name, user: self.user)
+            // Add group to database
+            self.dbHelper.addGroupToDatabase(group: newGroup)
             //reload data in tableview after new group is created.
             self.tableView.reloadData()
         })
@@ -60,11 +65,11 @@ class userVC: UIViewController {
         
     }
     // Gör extension av detta
-    func setTransparentNavigationbar() {
+    /*func setTransparentNavigationbar() {
           self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
           self.navigationController!.navigationBar.shadowImage = UIImage()
           self.navigationController!.navigationBar.isTranslucent = true
-      }
+      }*/
 }
 
 
