@@ -13,12 +13,26 @@ class Group: NSObject {
     var groupName = String()
     var groupMembers: [User] = []
     var groupTasks: [Task] = []
+    var pendingMember: User!
     
     init(groupName: String, groupCreator: User){
         self.groupName = groupName
         self.groupMembers.append(groupCreator)
     }
     override init() {
+        
+    }
+    func createBasicTask(task: String) -> Task {
+        let task = Task(basictask: task)
+        groupTasks.append(task)
+        return task
+    }
+    func inviteMember(){
+        // self.pendingMember = user of choice
+        // send request to member -> Bool
+        // listen for return true, if true add member to group
+    }
+    func addMember(){
         
     }
     func addTask() {

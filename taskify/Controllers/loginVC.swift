@@ -16,6 +16,8 @@ class loginVC: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var forgotpasswordLabel: UILabel!
+    var user: User!
+    let dbHelper = DatabaseHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,25 +41,22 @@ class loginVC: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         // Check username and password
+        //let username = usernameTextField.text ?? "nouser"
+        //let password = passwordTextField.text ?? "nopassword"
+        //let userID = dbHelper.loginUser(email: username, password: password)
+        //dbHelper.getUser(uid: userID!)
+        
         self.performSegue(withIdentifier: "loginToUserMainSegue", sender: self)
     }
-    // Gör extension
+    
     func animateAssetsWhenViewLoaded(){
-        // Animate LoginLabel
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseIn, animations: {
-            self.loginLabel.transform = CGAffineTransform(scaleX: 1.3, y: 1.2)
-        }, completion: {
-            b in
-            self.loginLabel.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        })
-        // Animate UsernameTextfield
+        // Animate assets
+        self.loginLabel.loginAnimation()
         self.usernameTextField.loginAnimation(duration: 0.3, delay: 0.3)
         self.passwordTextField.loginAnimation(duration: 0.3, delay: 0.4)
         self.clickhereButton.loginAnimation(duration: 0.3, delay: 0.9)
         self.loginButton.loginAnimation(duration: 0.3, delay: 1.3)
         
-        
-        //Do other animations of assets in loginview
     }
     
 }

@@ -12,6 +12,7 @@ import Firebase
 class DatabaseHelper: NSObject {
     
     let ref = Database.database().reference()
+    let userRef = Database.database().reference().child("users")
     
     override init() {
         super.init()
@@ -38,14 +39,47 @@ class DatabaseHelper: NSObject {
                    }
                 }
     }
+    func loginUser(email: String, password: String) -> String?{
+        var loggedInUser: String?
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if let _error = error {
+                print(_error.localizedDescription)
+                
+            } else{
+                loggedInUser = result?.user.uid
+                // fetch user from database with the UID and perform segue with USER
+            }
+            
+        }
+        return loggedInUser
+    }
+    func getUser(uid: String) -> User {
+        var user: User!
+        
+        _ = userRef.child(uid).observe(DataEventType.value, with: { (snapshot) in
+            let userDict = snapshot.value as?  [String : String] ?? [:]
+            user = User(username: userDict["username"]!)
+        })
+        return user
+    }
     // Adds user to realtime db, with authID as userID and selected username.
     func addUserWithUsernameToDatabase(user: User) {
+        
         self.ref.child("users").child(user.userID!).setValue(["username":user.username])
     }
     // Adds group to database with it's creator (user)
     func addGroupToDatabase(group: Group) {
+        // Use hashmap when adding members to db
+        //let flatmapMembers = group.groupMembers.flatMap({$0.})
+        self.ref.child("groups").childByAutoId().child(group.groupName).setValue(["members":group.groupMembers[0].userID])
+    }
+    func addMemberToGroup(group: Group, user:User) {
+        //group.groupMembers.map({ $0. })
+        //self.ref.child("groups").child(group.groupId).child(group.groupName).
+    }
+    func addTaskToDatabase() {
         
-        self.ref.child("groups").childByAutoId().child(group.groupName).setValue(["membersByID":group.groupMembers[0].userID])
     }
   
     

@@ -223,7 +223,7 @@
                                 <rect key="frame" x="20" y="153" width="374" height="305"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hd0-Ol-uf1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="hd0-Ol-uf1">
                                         <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hd0-Ol-uf1" id="lup-se-ir1">
@@ -242,6 +242,16 @@
                                     <segue destination="sLF-iJ-CvU" kind="embed" id="ZtE-m1-P9s"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ru1-qY-GVE">
+                                <rect key="frame" x="364" y="373" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="43"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="newTaskButtonPressed:" destination="LVj-uE-ifI" eventType="touchUpInside" id="cd4-Ds-esE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.24796819689999999" green="0.54331845050000005" blue="0.52274852989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -262,6 +272,8 @@
                     <connections>
                         <outlet property="addUserToGroupButton" destination="89v-LK-ucl" id="fho-SV-ghC"/>
                         <outlet property="headerTitleNavItem" destination="5Ht-gr-k4r" id="6Qh-Vz-eYH"/>
+                        <outlet property="newTaskButton" destination="ru1-qY-GVE" id="zQx-qG-pa6"/>
+                        <outlet property="tableView" destination="dHa-9j-2MA" id="TCe-uN-bwA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k8K-LK-QSS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

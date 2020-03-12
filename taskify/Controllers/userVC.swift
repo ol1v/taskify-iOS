@@ -43,12 +43,7 @@ class userVC: UIViewController {
         newGroupButton.roundButton()
         bottomView.roundCorners()
     }
-    
-    func loadUser() {
-        // get the logged in user
-        // get the logged in users data from database
-    }
-    
+
     @IBAction func newGroupButtonPressed(_ sender: Any) {
         // Custom Alertview with textfield.
         let alertVC = alertHandler.alert(title: "Create New Group", textfieldplaceholder: "Groupname...", buttontitle: "Create", onOkPressed: {
@@ -85,7 +80,7 @@ extension userVC: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! groupCell
         
         if(user.usersGroups.count < 1){
-            cell.textLabel!.text = "The Adams Family"
+            cell.textLabel!.text = " "
         } else{
             cell.textLabel!.text = user.usersGroups[indexPath.row].groupName
             }

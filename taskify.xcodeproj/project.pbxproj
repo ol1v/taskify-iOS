@@ -28,6 +28,7 @@
 		8D637E15240551AC00F46B80 /* userVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D637E14240551AB00F46B80 /* userVC.swift */; };
 		8D637E17240552D100F46B80 /* startVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D637E16240552D100F46B80 /* startVC.swift */; };
 		8D637E192405537700F46B80 /* signupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D637E182405537700F46B80 /* signupVC.swift */; };
+		8D7B6DB52419797F00A146C1 /* LabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7B6DB42419797F00A146C1 /* LabelExtensions.swift */; };
 		8D9A9BD8240D1C0100903C8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D9A9BD7240D1C0100903C8D /* GoogleService-Info.plist */; };
 		8D9A9BDA240D3A4C00903C8D /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9A9BD9240D3A4C00903C8D /* TextFieldExtensions.swift */; };
 		8D9A9BDC2412664500903C8D /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9A9BDB2412664500903C8D /* ViewExtensions.swift */; };
@@ -84,6 +85,7 @@
 		8D637E14240551AB00F46B80 /* userVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userVC.swift; sourceTree = "<group>"; };
 		8D637E16240552D100F46B80 /* startVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startVC.swift; sourceTree = "<group>"; };
 		8D637E182405537700F46B80 /* signupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signupVC.swift; sourceTree = "<group>"; };
+		8D7B6DB42419797F00A146C1 /* LabelExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelExtensions.swift; sourceTree = "<group>"; };
 		8D9A9BD7240D1C0100903C8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8D9A9BD9240D3A4C00903C8D /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
 		8D9A9BDB2412664500903C8D /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				8D075A9E240AA27300CE2411 /* ButtonExtensions.swift */,
 				8D9A9BD9240D3A4C00903C8D /* TextFieldExtensions.swift */,
 				8D9A9BDB2412664500903C8D /* ViewExtensions.swift */,
+				8D7B6DB42419797F00A146C1 /* LabelExtensions.swift */,
 				8D075A9A240A96CB00CE2411 /* groupCell.swift */,
 				8D075A9B240A96CB00CE2411 /* groupCell.xib */,
 			);
@@ -501,6 +504,7 @@
 				8D075A912408FD5F00CE2411 /* DatabaseHelper.swift in Sources */,
 				8D637DE2240549BE00F46B80 /* AppDelegate.swift in Sources */,
 				8D9A9BE624164AF800903C8D /* AlertHandler.swift in Sources */,
+				8D7B6DB52419797F00A146C1 /* LabelExtensions.swift in Sources */,
 				8D075A972409003B00CE2411 /* Task.swift in Sources */,
 				8D637E192405537700F46B80 /* signupVC.swift in Sources */,
 				8D637E17240552D100F46B80 /* startVC.swift in Sources */,
