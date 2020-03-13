@@ -41,14 +41,29 @@ class loginVC: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         // Check username and password
+        let email = usernameTextField.text!
+        let password = passwordTextField.text!
+        var userid = String()
         
-        // Get user from database
-        
-        //let userID = dbHelper.loginUser(email: username, password: password)
-        //dbHelper.getUser(uid: userID!)
+        dbHelper.loginUser(email: email, password: password) { (uid) in
+            userid = uid
+        }
+        dbHelper.getUser(uid: userid) { (user) in
+            self.user = user
+        }
         
         self.performSegue(withIdentifier: "loginToUserMainSegue", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           if(segue.identifier == "loginToUserMainSegue") {
+               let vc = segue.destination as? userVC
+                vc?.user = self.user
+                       
+               /*view.window?.rootViewController = vc
+               view.window?.makeKeyAndVisible()*/
+           }
+       }
     
     func animateAssetsWhenViewLoaded(){
         // Animate assets
@@ -59,6 +74,7 @@ class loginVC: UIViewController {
         self.loginButton.loginAnimation(duration: 0.3, delay: 1.3)
         
     }
+    
     
 }
 

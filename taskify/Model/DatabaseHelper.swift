@@ -14,6 +14,8 @@ class DatabaseHelper: NSObject {
     let ref = Database.database().reference()
     let userRef = Database.database().reference().child("users")
     let groupsRef = Database.database().reference().child("groups")
+    var user: User!
+    var userID = String()
     
     override init() {
         super.init()
@@ -40,38 +42,43 @@ class DatabaseHelper: NSObject {
                    }
                 }
     }
-    func loginUser(email: String, password: String) -> String?{
-        var loggedInUserID: String?
+    func loginUser(email: String, password: String,completion: @escaping (String) -> ()){
         
-        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+        Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
             if let _error = error {
                 print(_error.localizedDescription)
                 
-            } else{
-                loggedInUserID = result?.user.uid
-                // fetch user from database with the UID and perform segue with USER
-                print("user successfully authorized")
+            } else {
+                let userWithID = authResult?.user.uid
+                
+                completion(userWithID!)
+                
+                    }
             }
-            
         }
-        return loggedInUserID
-    }
-    func getUser(uid: String) -> User {
-        var user: User!
+    func getUser(uid: String, completion: @escaping (User) -> ()){
         
-        _ = userRef.child(uid).observe(DataEventType.value, with: { (snapshot) in
-            let userDict = snapshot.value as?  [String : String] ?? [:]
-            let usersGroups = userDict["groups"]
-            //user = User(uid: uid, username: userDict["username"]!,groups:)
-        })
-        return user
+        userRef.child(uid).observeSingleEvent(of: .value) { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let username = value?["username"] as? String ?? ""
+            let userID = uid
+            let user = User(username: username, uid: userID)
+            completion(user)
+            
+            print("got user from database: \(username)")
+        }
     }
+    func returnUser() -> User{
+        return self.user
+    }
+
     // Adds user to realtime db, with authID as userID and selected username.
     func addUserWithUsernameToDatabase(user: User) {
         
         self.ref.child("users").child(user.userID!).setValue(["username":user.username,
                                                               "userID":user.userID!])
     }
+    
     // Adds group to database with it's creator (user)
     func addGroupToDatabase(group: Group, user: User) {
         // Create group in database and add member to group
@@ -92,8 +99,19 @@ class DatabaseHelper: NSObject {
         self.userRef.child(user.userID!).child("groups").setValue(userUpdates)
         
     }
+    func updateData(user: User) {
+        for group in user.usersGroups {
+            
+            groupsRef.child(group.groupId).observe(.value, with: { snapshot in
+                print(snapshot.value as Any)
+            })
+        }
+    }
     
     func addTaskToDatabase(group: Group, task: Task) {
+            //Overridar befintliga tasks.. fixa!
+            // Skapa toAnyObject() funktion som tar en user/group/task och gör om den till en dictionary..
+        //let newTask [String : Any] = ["task":task.basicTask, "completed:":false]
         self.groupsRef.child(group.groupId).child("tasks").setValue(["task":task.basicTask!])
     }
     

@@ -26,6 +26,10 @@ class User: NSObject {
     init(username: String) {
         self.username = username
     }
+    init(username: String, uid: String){
+        self.username = username
+        self.userID = uid
+    }
     init(uid: String, username: String, groups: [Group]){
         self.userID = uid
         self.username = username
@@ -42,4 +46,5 @@ class User: NSObject {
         // add group to database
         dbHelper.addGroupToDatabase(group: group,user: user)
     }
+
 }

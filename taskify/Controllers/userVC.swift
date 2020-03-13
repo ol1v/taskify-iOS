@@ -37,12 +37,17 @@ class userVC: UIViewController {
         
         // load user - signup funkar. Fixa via LoginVC
         userSettingsItem.title = user.username
-
+        fetchGroupsFromDB()
+        
     }
     
     func setStylesInView() {
         newGroupButton.roundButton()
         bottomView.roundCorners()
+    }
+    
+    func fetchGroupsFromDB() {
+        dbHelper.updateData(user: self.user)
     }
 
     @IBAction func newGroupButtonPressed(_ sender: Any) {
