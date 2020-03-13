@@ -23,6 +23,7 @@ class userVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // set userVC as rootviewcontroller (when logged in)
+        // get user from database
         
         // Set layout in viewcontroller
         //setTransparentNavigationbar()
@@ -49,9 +50,9 @@ class userVC: UIViewController {
         let alertVC = alertHandler.alert(title: "Create New Group", textfieldplaceholder: "Groupname...", buttontitle: "Create", onOkPressed: {
             name in
             // Lägga till grupp i databas!
-            let newGroup = self.user.createGroup(groupname: name, user: self.user)
+            self.user.createGroup(groupname: name, user: self.user)
             // Add group to database
-            self.dbHelper.addGroupToDatabase(group: newGroup)
+            //self.dbHelper.addGroupToDatabase(group: newGroup)
             //reload data in tableview after new group is created.
             self.tableView.reloadData()
         })

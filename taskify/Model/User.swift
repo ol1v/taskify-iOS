@@ -16,6 +16,7 @@ class User: NSObject {
     var email: String?
     var points: Int = 0
     var usersGroups: [Group] = []
+    let dbHelper = DatabaseHelper()
     
     init(username: String, password: String, email: String) {
         self.username = username
@@ -25,13 +26,14 @@ class User: NSObject {
     init(username: String) {
         self.username = username
     }
-    func createGroup(groupname: String, user: User) -> Group {
+    func createGroup(groupname: String, user: User) {
         
         let group: Group = Group(groupName: groupname, groupCreator: user)
         self.usersGroups.append(group)
         print("group created: \(group.groupName)")
         print("by user: \(user.username!)")
         
-        return group
+        // add group to database
+        dbHelper.addGroupToDatabase(group: group,user: user)
     }
 }

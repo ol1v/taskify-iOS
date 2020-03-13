@@ -13,6 +13,7 @@ class DatabaseHelper: NSObject {
     
     let ref = Database.database().reference()
     let userRef = Database.database().reference().child("users")
+    let groupsRef = Database.database().reference().child("groups")
     
     override init() {
         super.init()
@@ -69,10 +70,21 @@ class DatabaseHelper: NSObject {
         self.ref.child("users").child(user.userID!).setValue(["username":user.username])
     }
     // Adds group to database with it's creator (user)
-    func addGroupToDatabase(group: Group) {
-        // Use hashmap when adding members to db
-        //let flatmapMembers = group.groupMembers.flatMap({$0.})
-        self.ref.child("groups").childByAutoId().child(group.groupName).setValue(["members":group.groupMembers[0].userID])
+    func addGroupToDatabase(group: Group, user: User) {
+        // Create group in database and add member to group
+        guard let key = self.ref.child("groups").childByAutoId().key else {return}
+        
+        group.groupId = key
+        
+        let groupUpdates = ["groupname": group.groupName,
+                       "members": user.username!]
+        self.groupsRef.child(key).setValue(groupUpdates)
+        
+        // Add group to users grouparray
+        let userUpdates = ["groupID":key,
+                           "groupname":group.groupName]
+        self.userRef.child(user.userID!).child("groups").setValue(userUpdates)
+        
     }
     func addMemberToGroup(group: Group, user:User) {
         //group.groupMembers.map({ $0. })
