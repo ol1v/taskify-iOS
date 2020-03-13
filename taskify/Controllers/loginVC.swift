@@ -41,8 +41,9 @@ class loginVC: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         // Check username and password
-        //let username = usernameTextField.text ?? "nouser"
-        //let password = passwordTextField.text ?? "nopassword"
+        
+        // Get user from database
+        
         //let userID = dbHelper.loginUser(email: username, password: password)
         //dbHelper.getUser(uid: userID!)
         

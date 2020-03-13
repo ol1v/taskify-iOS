@@ -26,6 +26,12 @@ class User: NSObject {
     init(username: String) {
         self.username = username
     }
+    init(uid: String, username: String, groups: [Group]){
+        self.userID = uid
+        self.username = username
+        self.usersGroups = groups
+    }
+    
     func createGroup(groupname: String, user: User) {
         
         let group: Group = Group(groupName: groupname, groupCreator: user)

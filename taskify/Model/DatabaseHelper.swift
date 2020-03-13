@@ -41,33 +41,36 @@ class DatabaseHelper: NSObject {
                 }
     }
     func loginUser(email: String, password: String) -> String?{
-        var loggedInUser: String?
+        var loggedInUserID: String?
         
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let _error = error {
                 print(_error.localizedDescription)
                 
             } else{
-                loggedInUser = result?.user.uid
+                loggedInUserID = result?.user.uid
                 // fetch user from database with the UID and perform segue with USER
+                print("user successfully authorized")
             }
             
         }
-        return loggedInUser
+        return loggedInUserID
     }
     func getUser(uid: String) -> User {
         var user: User!
         
         _ = userRef.child(uid).observe(DataEventType.value, with: { (snapshot) in
             let userDict = snapshot.value as?  [String : String] ?? [:]
-            user = User(username: userDict["username"]!)
+            let usersGroups = userDict["groups"]
+            //user = User(uid: uid, username: userDict["username"]!,groups:)
         })
         return user
     }
     // Adds user to realtime db, with authID as userID and selected username.
     func addUserWithUsernameToDatabase(user: User) {
         
-        self.ref.child("users").child(user.userID!).setValue(["username":user.username])
+        self.ref.child("users").child(user.userID!).setValue(["username":user.username,
+                                                              "userID":user.userID!])
     }
     // Adds group to database with it's creator (user)
     func addGroupToDatabase(group: Group, user: User) {
@@ -76,23 +79,28 @@ class DatabaseHelper: NSObject {
         
         group.groupId = key
         
-        let groupUpdates = ["groupname": group.groupName,
-                       "members": user.username!]
+        let groupUpdates = ["groupID":key,
+                            "groupname": group.groupName]
+        
         self.groupsRef.child(key).setValue(groupUpdates)
+        self.groupsRef.child(key).child("members").setValue(["member":user.username])
         
         // Add group to users grouparray
         let userUpdates = ["groupID":key,
                            "groupname":group.groupName]
+        
         self.userRef.child(user.userID!).child("groups").setValue(userUpdates)
         
     }
-    func addMemberToGroup(group: Group, user:User) {
-        //group.groupMembers.map({ $0. })
-        //self.ref.child("groups").child(group.groupId).child(group.groupName).
-    }
-    func addTaskToDatabase() {
-        
-    }
-  
     
+    func addTaskToDatabase(group: Group, task: Task) {
+        self.groupsRef.child(group.groupId).child("tasks").setValue(["task":task.basicTask!])
+    }
+    
+    func getGroupFromDatabase(group: Group) {
+        self.ref.child("groups").child(group.groupId).observe(DataEventType.value) { (snapshot) in
+            let groupDict = snapshot.value as? [String : String] ?? [:]
+            
+        }
+    }
 }

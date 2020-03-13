@@ -14,6 +14,7 @@ class Group: NSObject {
     var groupMembers: [User] = []
     var groupTasks: [Task] = []
     var pendingMember: User!
+    let dbHelper = DatabaseHelper()
     
     init(groupName: String, groupCreator: User){
         self.groupName = groupName
@@ -22,10 +23,12 @@ class Group: NSObject {
     override init() {
         
     }
-    func createBasicTask(task: String) -> Task {
-        let task = Task(basictask: task)
+    func createBasicTask(basictask: String,group: Group){
+        let task = Task(basictask: basictask)
         groupTasks.append(task)
-        return task
+        dbHelper.addTaskToDatabase(group: group, task: task)
+        // Skicka in group 
+        
     }
     func inviteMember(){
         // self.pendingMember = user of choice

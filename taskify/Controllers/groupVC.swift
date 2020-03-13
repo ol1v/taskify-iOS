@@ -16,6 +16,7 @@ class groupVC: UIViewController {
     @IBOutlet weak var addUserToGroupButton: UIButton!
     var group = Group()
     var alertHandler = AlertHandler()
+    let dbHelper = DatabaseHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,7 @@ class groupVC: UIViewController {
         let alertVC = alertHandler.alert(title: "Create New Task", textfieldplaceholder: "Task description...", buttontitle: "Create", onOkPressed: {
             name in
             // Lägga till task i groups taskArray!
-            let newTask = self.group.createBasicTask(task:name)
+            self.group.createBasicTask(basictask:name,group:self.group)
             // Add task to database
             
             //reload data in tableview after new task is created.
