@@ -43,16 +43,16 @@ class loginVC: UIViewController {
         // Check username and password
         let email = usernameTextField.text!
         let password = passwordTextField.text!
-        var userid = String()
+        //var userid = String()
         
         dbHelper.loginUser(email: email, password: password) { (uid) in
-            userid = uid
+            let userid = uid
+            print("userid from firebase: \(uid)")
+            self.dbHelper.getUser(uid: userid) { (user) in
+                self.user = user
+                self.performSegue(withIdentifier: "loginToUserMainSegue", sender: self)
+            }
         }
-        dbHelper.getUser(uid: userid) { (user) in
-            self.user = user
-        }
-        
-        self.performSegue(withIdentifier: "loginToUserMainSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
